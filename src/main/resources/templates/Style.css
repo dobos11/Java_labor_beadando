@@ -6,15 +6,63 @@ html {
     background-size: cover;
 }
 
+#menusor {
+    position: -webkit-sticky;
+}
 #Menu li {
     display: inline;
-    padding-left: 0;
 }
 
 #Menu a {
+    padding-left: 0;
     text-decoration: none;
     font-size: xx-large;
     color: black;
     padding: 20px;
     font-family: Calibri;
 }
+
+
+
+#erdekessegek {
+    font-family: Arial;
+    padding: 20px 0px 0px 0px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+#meghat {
+    padding: 0 0 0 60px;
+}
+
+#ceg {
+    font-family: Arial;
+    padding: 20px 0px 0px 60px;
+}
+
+#foglal {
+    padding: 0 0 0 150px;
+}
+
+#tortenelem, #sikerek{
+    text-align: center;
+    color: black;
+    background-color: lightsteelblue;
+}
+
+#lista {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+#regi {
+    height: 450px;
+    width: auto;
+    margin: auto;
+    display: block;
+}
+
+
