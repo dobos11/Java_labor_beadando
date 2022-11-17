@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Meccseink</title>
@@ -16,4 +17,36 @@
 
 
   </ul>
+</nav>
+<div>
+    <h3 style="color:#ff5900;" th:text="${uzenet}"></h3>
+    <h1>Meccsek</h1>
+    <a href="/uj">Új meccs hozzáad</a>
+    <br/><br/>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>datum</th>
+            <th>kezdes</th>
+            <th>belepo</th>
+            <th>tipus</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="meccs : ${meccsek}">
+            <td th:text="${meccs.id}"></td>
+            <td th:text="${meccs.datum}"></td>
+            <td th:text="${meccs.kezdes}"></td>
+            <td th:text="${meccs.belepo}"></td>
+            <td th:text="${meccs.tipus}"></td>
+            <td>
+                <a th:href="@{'/edit/'+${meccs.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/'+${meccs.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
 </html>
