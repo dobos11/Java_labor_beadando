@@ -27,15 +27,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/resources/**","/").permitAll()
+                .antMatchers("/resources/**", "/", "/Regisztracio", "/regisztral_feldolgoz","/*.css","/*.jpg").permitAll()
+                .antMatchers("/Meccseink","/Kapcsolatok").hasRole("USER")
                 .antMatchers("/admmin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/Home").permitAll()
+                .formLogin().defaultSuccessUrl("/",true).permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/").permitAll()
                 .and()
                 .exceptionHandling();
+
     }
 
 }

@@ -19,10 +19,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepo;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepo.findByName(username)
-                .orElseThrow(()->new UsernameNotFoundException("A "+username+" felhasználó nem létezik"));
-        return new org.springframework.security.core.userdetails.User(user.getNév(),user.getJelszó(),getAuthorities(user));
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        User user = userRepo.findByEmail(userName)
+                .orElseThrow(()->new UsernameNotFoundException("A "+userName+" felhasználó nem létezik"));
+        return new org.springframework.security.core.userdetails.User(user.getName(),user.getPassword(),getAuthorities(user));
     }
     private static Collection<? extends GrantedAuthority> getAuthorities(User user){
         String[] userRoles=user.getRoles().stream().map((role)->role.getName()).toArray(String[]::new);
