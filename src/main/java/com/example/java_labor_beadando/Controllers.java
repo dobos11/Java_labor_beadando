@@ -1,5 +1,6 @@
 package com.example.java_labor_beadando;
 
+import com.example.java_labor_beadando.kapcsolat.Message;
 import com.example.java_labor_beadando.kapcsolat.MessageRepository;
 import com.example.java_labor_beadando.securityrole.Role;
 import com.example.java_labor_beadando.securityrole.User;
@@ -47,10 +48,7 @@ public class Controllers  {
         return "Regisztracio";
     }
 
-    @GetMapping("/Kapcsolatok")
-    public String kapcsolat(){
-        return "Kapcsolatok";
-    }
+
     @Autowired
     private UserRepository userRepo;
     @PostMapping("/regisztral_feldolgoz")
@@ -70,11 +68,17 @@ public class Controllers  {
         user.setRoles(rolelist);
         userRepo.save(user);
         model.addAttribute("id", user.getId());
-        return "/";
+        return "/Home";
     }
 
     @Autowired
     private MessageRepository messageRepo;
+    //
+    @GetMapping("/Kapcsolatok")
+    public String ujUzenet(Model model){
+        model.addAttribute("uzenet",new Message());
+        return "Kapcsolatok";
+    }
 
 
 
