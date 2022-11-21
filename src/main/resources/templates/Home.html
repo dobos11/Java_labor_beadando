@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <title>Kezdőlap</title>
-    <link rel="stylesheet" type="text/css" href="Style.css" media="screen,print">
+    <link rel="stylesheet" th:href="@{/templates/Style.css}">
 </head>
 <body class="body" id="1body">
 <nav id="menusor" class="menu">
     <ul id="Menu">
-        <li><a href="Home.html">Kezdőlap</a></li>
-        <li><a href="Meccseink.html">Meccseink</a></li>
-        <li><a href="Belepes.html">Belépés</a></li>
-        <li><a href="Regisztracio.html">Regisztráció</a></li>
-        <li><a href="Kapcsolatok.html">Kapcsolatok</a></li>
+        <span sec:authorize="isAnonymous()">
+           <li> <a th:href="@{/login}">Bejelentkezés</a></li>
+        </span>
+        <span sec:authorize="isAuthenticated()">
+            <li><a th:href="@{/}">Kezdőlap</a></li>
+            <li><a th:href="@{/meccseink}">Meccseink</a></li>
+            <li><a th:href="@{/Kapcsolatok}">Kapcsolatok</a></li>
+            <li><a th:href="@{/logout}">Kijelentkezés</a></li>
+        </span>
+        <span sec:authorize="hasRole('ROLE_ADMIN')">
+            <li><a th:href="@{/admin/home}">Admin</a></li>
+        </span>
+        <span sec:authorize="isAnonymous()">
+            <li><a th:href="@{/Regisztracio}">Regisztráció</a></li>
+        </span>
     </ul>
 </nav>
 <div class="div" id="ceg">
@@ -40,7 +52,7 @@
     </p>
 </div>
 <div class="div" id="kep">
-    <img id="regi" src="foci.jpg">
+    <img id="regi" th:src="@{/templates/foci.jpg}">
 </div>
 </body>
 </html>
