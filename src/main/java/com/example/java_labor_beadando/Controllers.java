@@ -1,6 +1,6 @@
 package com.example.java_labor_beadando;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.java_labor_beadando.kapcsolat.MessageRepository;
 import com.example.java_labor_beadando.securityrole.Role;
 import com.example.java_labor_beadando.securityrole.User;
 import com.example.java_labor_beadando.securityrole.UserRepository;
@@ -72,6 +72,11 @@ public class Controllers  {
         model.addAttribute("id", user.getId());
         return "/";
     }
+
+    @Autowired
+    private MessageRepository messageRepo;
+
+
 
 
 
