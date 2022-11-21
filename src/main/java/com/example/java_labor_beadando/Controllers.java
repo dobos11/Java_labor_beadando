@@ -29,8 +29,8 @@ public class Controllers  {
 
     @GetMapping("/teszt")
     public String Kezdooldal(Model model, String uzenet) {
-        model.addAttribute("meccsek", adatokRepository.findAll());
-        model.addAttribute("uzenet", model.getAttribute("uzenet"));
+        model.addAttribute("meccsek",adatokRepository.findAll());
+        model.addAttribute("uzenet",model.addAttribute("uzenet"));
         return "Meccseink";
     }
 
