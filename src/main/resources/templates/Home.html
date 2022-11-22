@@ -10,13 +10,14 @@
 <body class="body" id="1body">
 <nav id="menusor" class="menu">
     <ul id="Menu">
+        <li><a th:href="@{/}">Kezdőlap</a></li>
+        <li><a th:href="@{/Kapcsolatok}">Kapcsolatok</a></li>
         <span sec:authorize="isAnonymous()">
            <li> <a th:href="@{/login}">Bejelentkezés</a></li>
         </span>
         <span sec:authorize="isAuthenticated()">
-            <li><a th:href="@{/}">Kezdőlap</a></li>
             <li><a th:href="@{/meccseink}">Meccseink</a></li>
-            <li><a th:href="@{/Kapcsolatok}">Kapcsolatok</a></li>
+
             <li><a th:href="@{/logout}">Kijelentkezés</a></li>
         </span>
         <span sec:authorize="hasRole('ROLE_ADMIN')">
