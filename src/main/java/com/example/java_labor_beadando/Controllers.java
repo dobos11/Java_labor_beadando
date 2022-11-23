@@ -6,20 +6,15 @@ import com.example.java_labor_beadando.securityrole.Role;
 import com.example.java_labor_beadando.securityrole.User;
 import com.example.java_labor_beadando.securityrole.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-=======
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-<<<<<<< Updated upstream
-=======
->>>>>>> 0fa04ff3e3bf37622a629b7f8e6a9fa527f1c0fd
->>>>>>> Stashed changes
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
