@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -80,17 +83,24 @@ public class Controllers  {
     }
 
     @PostMapping(value = "/ment")
-    public String uzenetMentese(@RequestParam String message, HttpServletRequest request, RedirectAttributes redirAttr){
+    public String uzenetMentese(@Validated @RequestParam String message, HttpServletRequest request, BindingResult bindingResult){
+        if(bindingResult.hasErrors())
+            return "Kapcsolatok";
         Principal userPrincipal= request.getUserPrincipal();
         Message msg= new Message();
         msg.setMessage(message);
         if(userPrincipal!=null){msg.setName(userPrincipal.getName());}
-        else{msg.setName("Látogató");}
+        else{msg.setName("Vendég");}
+        msg.setDate(new Date());
         messageRepo.save(msg);
-        redirAttr.addFlashAttribute("uzenet","Köszönjük az üzenetet!");
-        return "/Home";
+        return "Home";
     }
 
+    @GetMapping("/uzenetek")
+    public String uzenetek(Model model){
+        model.addAttribute("messages",messageRepo.findByOrderByDateDesc());
+        return "uzenetek";
+    }
 
 
 
