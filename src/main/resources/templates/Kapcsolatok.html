@@ -13,7 +13,7 @@
     Üzenet küldése: <span sec:authentication="name"></span> néven.</div>
 <br/>
 <form action="#" th:action="@{/ment}"  method="post" >
-    <p><textarea rows="10" cols="80" type="text" th:field="${message}" placeholder="Üzenet" required/></p>
+    <p><textarea rows="10" cols="80" type="text" th:value="*{message}" name="message" placeholder="Üzenet" required></textarea></p>
     <p><input type="submit" value="Elküld" /></p>
 </form>
 </body>
