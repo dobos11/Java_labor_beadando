@@ -6,6 +6,7 @@ html {
     background-size: cover;
 }
 
+
 #menusor {
     position: -webkit-sticky;
 }
@@ -63,6 +64,19 @@ html {
     width: auto;
     margin: auto;
     display: block;
+}
+
+#2body {
+    color: deepskyblue;
+}
+
+#tbody1 {
+    color: greenyellow;
+    font-weight: bolder;
+}
+
+#meccsdiv {
+    padding-left: 60px;
 }
 
 
