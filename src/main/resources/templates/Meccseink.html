@@ -32,16 +32,17 @@
         <li><a th:href="@{/uzenetek}">Üzenetek</a></li>
     </ul>
 </nav>
-<div id="meccsdiv">
+<div id="divek">
+    <div id="meccsdiv">
 
     <h1>Meccsek</h1>
-    <br/><br/>
-    <table style="background-color: white">
+    <br/>
+    <table id="1tbl" style="background-color: white">
         <thead>
         <tr>
             <th>id</th>
-            <th>datum</th>
-            <th>kezdes</th>
+            <th style="padding-left: 10px">datum</th>
+            <th style="padding-left: 20px">kezdes</th>
             <th>belepo</th>
             <th>tipus</th>
         </tr>
@@ -58,18 +59,18 @@
         </tr>
         </tbody>
     </table>
-</div>
+    </div>
 
-<div id="nezodiv">
+    <div id="nezodiv">
     <h1>Nezok</h1>
-    <br/><br/>
+    <br/>
     <table style="background-color: white">
         <thead>
         <tr>
             <th>id</th>
             <th>nev</th>
-            <th>ferfi</th>
-            <th>berletes</th>
+            <th style="padding-left: 50px">ferfi</th>
+            <th style="padding-right: 30px">berlet</th>
         </tr>
         </thead>
         <tbody id="tbody2">
@@ -83,26 +84,30 @@
         </tr>
         </tbody>
     </table>
-</div>
-<div id="belepesdiv">
-    <h1>Nezok</h1>
-    <br/><br/>
+    </div>
+
+    <div id="belepesdiv">
+    <h1>Belepes</h1>
+        <br/>
     <table style="background-color: white">
         <thead>
         <tr>
-            <th>nezoid</th>
-            <th>meccsid</th>
-            <th>idopont</th>
+            <th>n.id</th>
+            <th>m.id</th>
+            <th>idő</th>
         </tr>
-        </thead><tr th:each="belep : ${belepesek}">
+        </thead>
+        <tbody id="tbody3">
+        <tr th:each="belep : ${belepesek}">
             <td th:text="${belep.nezoid}"></td>
-            <td th:text="${belep.meccsid}"></td>
+            <td style="padding-left: 30px" th:text="${belep.meccsid}"></td>
             <td th:text="${belep.idopont}"></td>
             <td>
             </td>
         </tr>
-        </>
+        </tbody>
     </table>
+    </div>
 </div>
 </body>
 </html>

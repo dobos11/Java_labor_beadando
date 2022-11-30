@@ -76,8 +76,53 @@ html {
 }
 
 
+
+
+th {
+    padding: 10px;
+}
+
+td {
+    padding: 6px;
+}
+
+
+table tbody { height:300px; overflow-y:scroll; display:block; }
+table thead { display:block; }
+
+#divek {
+    width: fit-content;
+    height:190px;
+    padding-top:20px;
+    padding-left:60px;
+    padding-right:15px;
+}
+
 #meccsdiv {
+    float:left;
+    width:180px;
+    height:200px;
+}
+
+#nezodiv {
+    float:left;
+    width:180px;
+    height:200px;
+    margin-left:350px;
+
+}
+
+#belepesdiv {
+    float:right;
+    width:180px;
+    height:200px;
+    margin-left: 280px;
+
+}
+
+/*#meccsdiv {
     padding-left: 60px;
+
 }
 
 #nezodiv {
@@ -86,6 +131,6 @@ html {
 
 #belepesdiv {
     padding-left: 60px;
-}
+}*/
 
 
