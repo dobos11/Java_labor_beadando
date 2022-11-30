@@ -3,18 +3,19 @@ package com.example.java_labor_beadando;
 import javax.persistence.*;
 
 @Entity
+@Table(name="nezo")
 public class Nezok {
     @Id
     public int id;
     private String nev;
     private boolean ferfi;
-    private boolean belepes;
+    private boolean berletes;
 
     public Nezok(int id, String nev, boolean ferfi, boolean belepes) {
         this.id = id;
         this.nev = nev;
         this.ferfi = ferfi;
-        this.belepes = belepes;
+        this.berletes = berletes;
     }
 
     public Nezok() {
@@ -44,11 +45,11 @@ public class Nezok {
         this.ferfi = ferfi;
     }
 
-    public boolean isBelepes() {
-        return belepes;
+    public boolean isBerletes() {
+        return berletes;
     }
 
-    public void setBelepes(boolean belepes) {
-        this.belepes = belepes;
+    public void setBerletes(boolean belepes) {
+        this.berletes = berletes;
     }
 }

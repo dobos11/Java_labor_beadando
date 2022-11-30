@@ -33,11 +33,19 @@ public class Controllers  {
     @Autowired
     private dataRepository dataRepository;
 
+    @Autowired
+    private dataIIRepository dataIIRepository;
+    @Autowired
+    private dataIIIRepository dataIIIRepository;
+
 
 
     @GetMapping("/meccseink")
     public String Kezdooldal(Model model, String uzenet) {
         model.addAttribute("meccsek", dataRepository.findAll());
+        model.addAttribute("nezok", dataIIRepository.findAll());
+        model.addAttribute("belepesek", dataIIIRepository.findAll());
+
         model.addAttribute("uzenet",model.addAttribute("uzenet"));
         return "Meccseink";
     }
@@ -56,6 +64,7 @@ public class Controllers  {
         model.addAttribute("reg", new User());
         return "Regisztracio";
     }
+
 
 
     @Autowired

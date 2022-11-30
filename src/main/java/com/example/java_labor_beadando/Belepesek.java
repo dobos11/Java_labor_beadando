@@ -3,6 +3,7 @@ package com.example.java_labor_beadando;
 import javax.persistence.*;
 
 @Entity
+@Table(name="belepes")
 public class Belepesek {
     @Id
     private int nezoid;

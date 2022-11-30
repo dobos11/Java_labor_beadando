@@ -71,11 +71,20 @@ html {
 }
 
 #tbody1 {
-    color: greenyellow;
+    color: black;
     font-weight: bolder;
 }
 
+
 #meccsdiv {
+    padding-left: 60px;
+}
+
+#nezodiv {
+    padding-left: 60px;
+}
+
+#belepesdiv {
     padding-left: 60px;
 }
 

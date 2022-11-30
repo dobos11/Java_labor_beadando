@@ -35,9 +35,8 @@
 <div id="meccsdiv">
 
     <h1>Meccsek</h1>
-    <a href="/meccseink">Új meccs hozzáad</a>
     <br/><br/>
-    <table>
+    <table style="background-color: white">
         <thead>
         <tr>
             <th>id</th>
@@ -55,11 +54,54 @@
             <td th:text="${meccs.belepo}"></td>
             <td th:text="${meccs.tipus}"></td>
             <td>
-                <a th:href="@{'/Edit/'+${meccs.id}}">Edit</a>&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/Delete/'+${meccs.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
+    </table>
+</div>
+
+<div id="nezodiv">
+    <h1>Nezok</h1>
+    <br/><br/>
+    <table style="background-color: white">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>nev</th>
+            <th>ferfi</th>
+            <th>berletes</th>
+        </tr>
+        </thead>
+        <tbody id="tbody2">
+        <tr th:each="item : ${nezok}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.nev}"></td>
+            <td th:text="${item.ferfi}"></td>
+            <td th:text="${item.berletes}"></td>
+            <td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="belepesdiv">
+    <h1>Nezok</h1>
+    <br/><br/>
+    <table style="background-color: white">
+        <thead>
+        <tr>
+            <th>nezoid</th>
+            <th>meccsid</th>
+            <th>idopont</th>
+        </tr>
+        </thead><tr th:each="belep : ${belepesek}">
+            <td th:text="${belep.nezoid}"></td>
+            <td th:text="${belep.meccsid}"></td>
+            <td th:text="${belep.idopont}"></td>
+            <td>
+            </td>
+        </tr>
+        </>
     </table>
 </div>
 </body>
