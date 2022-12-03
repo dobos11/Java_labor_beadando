@@ -10,7 +10,10 @@ public class JavaLaborBeadandoApplication {
 
     @Autowired
     private dataRepository dataRepository;
+    @Autowired
     private dataIIRepository dataIIRepository;
+    @Autowired
+    private dataIIIRepository dataIIIRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(JavaLaborBeadandoApplication.class, args);

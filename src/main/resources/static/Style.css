@@ -120,6 +120,11 @@ table thead { display:block; }
 
 }
 
+#hozzaad {
+    font-weight: bold;
+    color: white;
+}
+
 /*#meccsdiv {
     padding-left: 60px;
 

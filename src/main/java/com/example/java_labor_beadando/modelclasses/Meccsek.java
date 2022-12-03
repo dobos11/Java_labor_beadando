@@ -1,4 +1,4 @@
-package com.example.java_labor_beadando;
+package com.example.java_labor_beadando.modelclasses;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name="meccs")
 public class Meccsek {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String datum;
     private String kezdes;

@@ -2,9 +2,12 @@ package com.example.java_labor_beadando;
 
 import com.example.java_labor_beadando.kapcsolat.Message;
 import com.example.java_labor_beadando.kapcsolat.MessageRepository;
+import com.example.java_labor_beadando.modelclasses.Belepesek;
+import com.example.java_labor_beadando.modelclasses.Meccsek;
 import com.example.java_labor_beadando.securityrole.Role;
 import com.example.java_labor_beadando.securityrole.User;
 import com.example.java_labor_beadando.securityrole.UserRepository;
+import jdk.dynalink.linker.MethodTypeConversionStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -24,8 +27,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-
+import java.util.Optional;
 
 
 @Controller
@@ -118,6 +120,52 @@ public class Controllers  {
         return "uzenetek";
     }
 
+    //Restful API
+
+    //Add
+    @GetMapping("/add")
+    public String getForm(Model model)
+    {
+        Meccsek m = new Meccsek();
+        model.addAttribute("meccsek", m);
+        return "hozzaadas";
+    }
+
+    //Post - adatfogadás
+    @PostMapping("/add")
+    public String addMeccsek(@ModelAttribute Meccsek m, Model model)
+    {
+        dataRepository.save(m);
+        model.addAttribute("meccsek", new Meccsek());
+
+        return "/Hozzaadas";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String GoEdit(@PathVariable(name = "id") int id, Model model)
+    {
+        Optional<Meccsek> m = dataRepository.findById(id);
+        model.addAttribute("meccsek", m);
+
+        return "Valtoztatas";
+    }
+
+    @PostMapping("/edit")
+    public String Edited(@ModelAttribute Meccsek meccsek, Model model)
+    {
+        dataRepository.save(meccsek);
+        model.addAttribute("meccsek", new Meccsek());
+
+        return "/Valtoztatas";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteData(@PathVariable(name = "id") int id)
+    {
+        dataRepository.deleteById(id);
+
+        return "Torles";
+    }
 
 
 
