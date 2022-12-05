@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class JavaLaborBeadandoApplication {
 
-    @Autowired
-    private dataRepository dataRepository;
+   // @Autowired
+    //private dataRepository dataRepository;
     @Autowired
     private dataIIRepository dataIIRepository;
     @Autowired
