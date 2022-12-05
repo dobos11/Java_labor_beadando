@@ -2,12 +2,10 @@ package com.example.java_labor_beadando;
 
 import com.example.java_labor_beadando.kapcsolat.Message;
 import com.example.java_labor_beadando.kapcsolat.MessageRepository;
-import com.example.java_labor_beadando.modelclasses.Belepesek;
 import com.example.java_labor_beadando.modelclasses.Meccsek;
 import com.example.java_labor_beadando.securityrole.Role;
 import com.example.java_labor_beadando.securityrole.User;
 import com.example.java_labor_beadando.securityrole.UserRepository;
-import jdk.dynalink.linker.MethodTypeConversionStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,10 +15,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -33,17 +29,18 @@ import java.util.Optional;
 @Controller
 public class Controllers  {
     @Autowired
-    private dataRepository dataRepository;
+    private com.example.java_labor_beadando.repositories.dataRepository dataRepository;
 
     @Autowired
-    private dataIIRepository dataIIRepository;
+    private com.example.java_labor_beadando.repositories.dataIIRepository dataIIRepository;
     @Autowired
-    private dataIIIRepository dataIIIRepository;
+    private com.example.java_labor_beadando.repositories.dataIIIRepository dataIIIRepository;
+
 
 
 
     @GetMapping("/meccseink")
-    public String Kezdooldal(Model model, String uzenet) {
+    public String Kezdooldal(Model model) {
         model.addAttribute("meccsek", dataRepository.findAll());
         model.addAttribute("nezok", dataIIRepository.findAll());
         model.addAttribute("belepesek", dataIIIRepository.findAll());

@@ -1,4 +1,4 @@
-package com.example.java_labor_beadando;
+package com.example.java_labor_beadando.repositories;
 
 import com.example.java_labor_beadando.modelclasses.Belepesek;
 import org.springframework.data.repository.CrudRepository;

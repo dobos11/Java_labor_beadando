@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class JavaLaborBeadandoApplication {
 
-   // @Autowired
-    //private dataRepository dataRepository;
     @Autowired
-    private dataIIRepository dataIIRepository;
+    private com.example.java_labor_beadando.repositories.dataRepository dataRepository;
     @Autowired
-    private dataIIIRepository dataIIIRepository;
+    private com.example.java_labor_beadando.repositories.dataIIRepository dataIIRepository;
+    @Autowired
+    private com.example.java_labor_beadando.repositories.dataIIIRepository dataIIIRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(JavaLaborBeadandoApplication.class, args);
