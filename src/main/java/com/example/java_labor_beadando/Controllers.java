@@ -98,9 +98,7 @@ public class Controllers  {
     }
 
     @PostMapping(value = "/ment")
-    public String uzenetMentese(@Validated @RequestParam String message, HttpServletRequest request, BindingResult bindingResult){
-        if(bindingResult.hasErrors())
-            return "Kapcsolatok";
+    public String uzenetMentese(@Validated @RequestParam String message, HttpServletRequest request){
         Principal userPrincipal= request.getUserPrincipal();
         Message msg= new Message();
         msg.setMessage(message);
