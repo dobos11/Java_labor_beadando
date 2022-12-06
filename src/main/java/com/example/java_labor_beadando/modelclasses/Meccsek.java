@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name="meccs")
 public class Meccsek {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String datum;
     private String kezdes;

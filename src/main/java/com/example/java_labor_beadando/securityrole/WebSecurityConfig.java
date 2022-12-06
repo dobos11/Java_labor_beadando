@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Configuration
 @EnableWebSecurity
@@ -27,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .antMatchers("/resources/**", "/","/ment","/Home","/Regisztracio", "/regisztral_feldolgoz","/Kapcsolatok","/uzenetek").permitAll()
+                .antMatchers("/resources/**", "/","/ment","/meccs/**","/Home","/Regisztracio", "/regisztral_feldolgoz","/Kapcsolatok","/uzenetek").permitAll()
                 .antMatchers("/*.css","/*.jpg").permitAll()
                 .antMatchers("/Meccseink").hasRole("USER")
                 .antMatchers("/admmin/**").hasRole("ADMIN")
