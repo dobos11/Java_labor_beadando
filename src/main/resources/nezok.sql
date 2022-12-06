@@ -2849,6 +2849,6 @@ CREATE TABLE messages(
 	id int(11) AUTO_INCREMENT PRIMARY KEY,
     name varchar(255),
     message varchar(511) not null,
-    date datetime(30)
+    date datetime
 );
 
