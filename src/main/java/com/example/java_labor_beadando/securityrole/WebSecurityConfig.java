@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/*.css","/*.jpg").permitAll()
                 .antMatchers("/Meccseink").hasRole("USER")
                 .antMatchers("/admmin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/",true).permitAll()
                 .and()
